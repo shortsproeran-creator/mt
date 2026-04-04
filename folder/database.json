@@ -1,15 +1,8 @@
 {
   "videos": [],
-  "users": {
-    "radhika12": {
-      "username": "radhika12",
-      "logo": "",
-      "name": "",
-      "email": "radhika@gmail.com",
-      "coins": 0,
-      "watchCount": 0,
-      "uploadCount": 0,
-      "monetizeSeconds": 0
-    }
-  }
+  "users": {},
+  "follows": {},
+  "comments": {},
+  "likes": {},
+  "messages": {}
 }
