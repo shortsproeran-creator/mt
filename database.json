@@ -59,10 +59,10 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775749130335.png",
       "coins": 51,
       "stats": {
-        "watched": 20,
+        "watched": 22,
         "uploads": 7,
         "minutes": 18,
-        "seconds": 13
+        "seconds": 9
       }
     },
     "rahi": {
@@ -72,10 +72,10 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775755154110.png",
       "coins": 50,
       "stats": {
-        "watched": 9,
+        "watched": 8,
         "uploads": 1,
-        "minutes": 17,
-        "seconds": 51
+        "minutes": 18,
+        "seconds": 42
       }
     }
   },
@@ -96,7 +96,12 @@
       "likedBy": [
         "dp106"
       ],
-      "comments": [],
+      "comments": [
+        {
+          "user": "dp106",
+          "text": "nice"
+        }
+      ],
       "views": 2
     },
     {
