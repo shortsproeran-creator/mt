@@ -60,7 +60,7 @@
       "coins": 51,
       "stats": {
         "watched": 20,
-        "uploads": 6,
+        "uploads": 7,
         "minutes": 18,
         "seconds": 6
       }
@@ -75,11 +75,19 @@
         "watched": 8,
         "uploads": 1,
         "minutes": 17,
-        "seconds": 29
+        "seconds": 47
       }
     }
   },
   "videos": [
+    {
+      "url": "https://raw.githubusercontent.com/myapkcreator24-boop/shorts/main/videos/1775763280872.mp4",
+      "userName": "dp106",
+      "userLogo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775749130335.png",
+      "likes": 0,
+      "likedBy": [],
+      "comments": []
+    },
     {
       "url": "https://raw.githubusercontent.com/myapkcreator24-boop/shorts/main/videos/1775760721257.mp4",
       "userName": "rahi",
