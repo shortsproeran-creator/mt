@@ -49,7 +49,7 @@
         "watched": 58,
         "uploads": 3,
         "minutes": 17,
-        "seconds": 1
+        "seconds": 0
       }
     },
     "dp106": {
@@ -72,9 +72,10 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775755154110.png",
       "coins": 50,
       "stats": {
-        "watched": 6,
+        "watched": 7,
         "uploads": 0,
-        "minutes": 0
+        "minutes": 0,
+        "seconds": 48
       }
     }
   },
