@@ -75,7 +75,7 @@
         "watched": 8,
         "uploads": 1,
         "minutes": 18,
-        "seconds": 11
+        "seconds": 20
       }
     }
   },
@@ -96,7 +96,12 @@
       "likedBy": [
         "dp106"
       ],
-      "comments": [],
+      "comments": [
+        {
+          "user": "dp106",
+          "text": "nice"
+        }
+      ],
       "views": 2
     },
     {
