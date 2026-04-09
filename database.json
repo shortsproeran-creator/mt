@@ -10,7 +10,7 @@
         "watched": 3,
         "uploads": 0,
         "minutes": 53,
-        "seconds": 41
+        "seconds": 45
       }
     },
     "girl105": {
@@ -23,7 +23,7 @@
         "watched": 10,
         "uploads": 0,
         "minutes": 3,
-        "seconds": 30
+        "seconds": 35
       }
     },
     "priyanka": {
@@ -36,7 +36,7 @@
         "watched": 78,
         "uploads": 0,
         "minutes": 1,
-        "seconds": 1
+        "seconds": 4
       }
     },
     "dp105": {
@@ -48,8 +48,8 @@
       "stats": {
         "watched": 58,
         "uploads": 3,
-        "minutes": 19,
-        "seconds": 45
+        "minutes": 17,
+        "seconds": 36
       }
     },
     "dp106": {
@@ -59,10 +59,10 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775749130335.png",
       "coins": 51,
       "stats": {
-        "watched": 13,
+        "watched": 14,
         "uploads": 6,
-        "minutes": 15,
-        "seconds": 2
+        "minutes": 16,
+        "seconds": 11
       }
     },
     "rahi": {
@@ -72,23 +72,13 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775755154110.png",
       "coins": 50,
       "stats": {
-        "watched": 7,
-        "uploads": 1,
-        "minutes": 0,
-        "seconds": 56
+        "watched": 6,
+        "uploads": 0,
+        "minutes": 0
       }
     }
   },
   "videos": [
-    {
-      "url": "https://raw.githubusercontent.com/myapkcreator24-boop/shorts/main/videos/1775760154478.mp4",
-      "userName": "rahi",
-      "userLogo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775755154110.png",
-      "likes": 0,
-      "likedBy": [],
-      "comments": [],
-      "views": 1
-    },
     {
       "url": "https://raw.githubusercontent.com/myapkcreator24-boop/shorts/main/videos/1775729162852.mp4",
       "userName": "dp105",
