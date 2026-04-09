@@ -10,7 +10,7 @@
         "watched": 3,
         "uploads": 0,
         "minutes": 53,
-        "seconds": 41
+        "seconds": 43
       }
     },
     "girl105": {
@@ -23,7 +23,7 @@
         "watched": 10,
         "uploads": 0,
         "minutes": 3,
-        "seconds": 30
+        "seconds": 31
       }
     },
     "priyanka": {
@@ -36,7 +36,7 @@
         "watched": 78,
         "uploads": 0,
         "minutes": 1,
-        "seconds": 1
+        "seconds": 3
       }
     },
     "dp105": {
@@ -48,8 +48,8 @@
       "stats": {
         "watched": 58,
         "uploads": 3,
-        "minutes": 19,
-        "seconds": 1
+        "minutes": 17,
+        "seconds": 14
       }
     },
     "dp106": {
@@ -62,7 +62,7 @@
         "watched": 13,
         "uploads": 6,
         "minutes": 15,
-        "seconds": 2
+        "seconds": 11
       }
     },
     "rahi": {
@@ -72,10 +72,9 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775755154110.png",
       "coins": 50,
       "stats": {
-        "watched": 7,
+        "watched": 6,
         "uploads": 0,
-        "minutes": 0,
-        "seconds": 56
+        "minutes": 0
       }
     }
   },
