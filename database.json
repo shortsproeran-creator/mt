@@ -9,8 +9,8 @@
       "stats": {
         "watched": 3,
         "uploads": 0,
-        "minutes": 54,
-        "seconds": 12
+        "minutes": 53,
+        "seconds": 52
       }
     },
     "girl105": {
@@ -23,7 +23,7 @@
         "watched": 10,
         "uploads": 0,
         "minutes": 3,
-        "seconds": 36
+        "seconds": 37
       }
     },
     "priyanka": {
@@ -36,7 +36,7 @@
         "watched": 78,
         "uploads": 0,
         "minutes": 1,
-        "seconds": 6
+        "seconds": 9
       }
     },
     "dp105": {
@@ -48,8 +48,8 @@
       "stats": {
         "watched": 58,
         "uploads": 3,
-        "minutes": 17,
-        "seconds": 47
+        "minutes": 18,
+        "seconds": 1
       }
     },
     "dp106": {
@@ -61,8 +61,8 @@
       "stats": {
         "watched": 15,
         "uploads": 6,
-        "minutes": 17,
-        "seconds": 1
+        "minutes": 16,
+        "seconds": 41
       }
     },
     "rahi": {
@@ -74,7 +74,8 @@
       "stats": {
         "watched": 6,
         "uploads": 0,
-        "minutes": 0
+        "minutes": 0,
+        "seconds": 10
       }
     }
   },
