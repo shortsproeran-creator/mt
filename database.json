@@ -49,7 +49,7 @@
         "watched": 58,
         "uploads": 3,
         "minutes": 16,
-        "seconds": 1
+        "seconds": 22
       }
     },
     "dp106": {
@@ -74,7 +74,8 @@
       "stats": {
         "watched": 6,
         "uploads": 0,
-        "minutes": 0
+        "minutes": 0,
+        "seconds": 12
       }
     }
   },
