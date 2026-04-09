@@ -60,7 +60,7 @@
       "coins": 51,
       "stats": {
         "watched": 1,
-        "uploads": 8,
+        "uploads": 7,
         "minutes": 12,
         "seconds": 2
       }
@@ -87,15 +87,6 @@
       "likedBy": [
         "dp106"
       ],
-      "comments": [],
-      "views": 2
-    },
-    {
-      "url": "https://raw.githubusercontent.com/myapkcreator24-boop/shorts/main/videos/1775753865899.mp4",
-      "userName": "dp106",
-      "userLogo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1775749130335.png",
-      "likes": 0,
-      "likedBy": [],
       "comments": [],
       "views": 2
     },
