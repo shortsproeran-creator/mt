@@ -62,7 +62,7 @@
         "watched": 30,
         "uploads": 7,
         "minutes": 46,
-        "seconds": 2
+        "seconds": 3
       }
     },
     "rahi": {
@@ -75,7 +75,8 @@
         "watched": 12,
         "uploads": 1,
         "minutes": 18,
-        "seconds": 27
+        "seconds": 42,
+        "total_seconds": 17
       }
     }
   },
