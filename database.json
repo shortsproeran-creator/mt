@@ -51,7 +51,7 @@
         "watched": 75,
         "uploads": 0,
         "minutes": 25,
-        "seconds": 24
+        "seconds": 26
       }
     },
     "dp106": {
@@ -64,7 +64,7 @@
         "watched": 30,
         "uploads": 7,
         "minutes": 46,
-        "seconds": 20
+        "seconds": 31
       }
     },
     "rahi": {
@@ -77,7 +77,7 @@
         "watched": 12,
         "uploads": 1,
         "minutes": 22,
-        "seconds": 37,
+        "seconds": 38,
         "total_seconds": 51
       },
       "monetizeSeconds": 51
@@ -120,7 +120,7 @@
       "logo": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/logos/1776522810444.png",
       "coins": 50,
       "stats": {
-        "watched": 18,
+        "watched": 20,
         "uploads": 0,
         "minutes": 0
       }
