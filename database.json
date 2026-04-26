@@ -14,8 +14,10 @@
     {
       "url": "https://raw.githubusercontent.com/myapkcreator24-boop/shorts/main/videos/1777232187476.mp4",
       "userName": "debasis",
-      "likes": 0,
-      "likedBy": [],
+      "likes": 1,
+      "likedBy": [
+        "debasis"
+      ],
       "comments": []
     }
   ]
