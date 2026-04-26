@@ -21,7 +21,7 @@
         "watched": 36,
         "uploads": 1,
         "minutes": 3,
-        "seconds": 0
+        "seconds": 7
       }
     }
   },
@@ -34,7 +34,12 @@
       "likedBy": [
         "debasis"
       ],
-      "comments": [],
+      "comments": [
+        {
+          "user": "debasis",
+          "text": "nice"
+        }
+      ],
       "views": 1
     },
     {
