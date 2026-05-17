@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Play Store Style Installer</title>
+    <style>
+        :root {
+            --play-green: #01875f;
+            --play-green-dark: #006e4e;
+            --play-bg: #ffffff;
+            --text-main: #202124;
+            --text-sub: #5f6368;
+            --border-color: #dadce0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body { 
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif; 
+            background-color: #ffffff; 
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Mobile Container Layout */
+        .mobile-container {
+            width: 100%;
+            max-width: 480px; /* মোবাইল স্ক্রিনের জন্য পারফেক্ট সাইজ */
+            min-height: 100vh;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        /* Play Store Top Header */
+        .play-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 10;
+        }
+
+        .play-logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Play Store Triangle Logo Shape */
+        .play-logo-icon {
+            width: 24px;
+            height: 24px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg') no-repeat center;
+            background-size: contain;
+        }
+
+        .play-brand-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .search-icon {
+            font-size: 20px;
+            color: var(--text-sub);
+            cursor: pointer;
+        }
+
+        /* Main Content Body */
+        .main-content {
+            padding: 20px 16px;
+            flex-grow: 1;
+        }
+
+        /* App Info Layout (Logo + Title + Button) */
+        .app-info-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* Logo & Progress Main Wrapper */
+        .logo-progress-wrapper {
+            position: relative;
+            width: 86px;
+            height: 86px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* App Logo */
+        .app-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            object-fit: cover;
+            position: absolute;
+            z-index: 1;
+            background-color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        /* Circular SVG Progress Bar */
+        .circular-progress {
+            position: absolute;
+            width: 86px;
+            height: 86px;
+            transform: rotate(-90deg);
+            z-index: 2;
+            pointer-events: none;
+            display: none;
+        }
+
+        .circular-progress circle {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke-width: 4px;
+            stroke-linecap: round;
+        }
+
+        .circle-bg { stroke: #f1f3f4; }
+        .circle-fill {
+            stroke: var(--play-green);
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            transition: stroke-dashoffset 0.1s linear;
+        }
+
+        /* Center Cross/Cancel Icon Inside Logo */
+        .inner-cancel {
+            position: absolute;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            z-index: 3;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .inner-cancel::before, .inner-cancel::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 16px;
+            background-color: #5f6368;
+            border-radius: 2px;
+        }
+        .inner-cancel::before { transform: rotate(45deg); }
+        .inner-cancel::after { transform: rotate(-45deg); }
+
+        .app-details {
+            flex-grow: 1;
+        }
+
+        .app-title {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .app-developer {
+            font-size: 14px;
+            color: var(--play-green);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .status-text { 
+            font-size: 13px; 
+            color: var(--text-sub); 
+        }
+
+        /* Button Action Area */
+        .action-area {
+            margin-bottom: 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Standard Play Store Full-Width Button */
+        .play-btn { 
+            background-color: var(--play-green); 
+            color: #fff; 
+            border: none; 
+            width: 100%;
+            padding: 10px 24px; 
+            font-weight: 500; 
+            cursor: pointer; 
+            border-radius: 24px; 
+            font-size: 14px; 
+            transition: background 0.2s;
+            outline: none;
+            text-align: center;
+        }
+        
+        .play-btn:hover { background-color: var(--play-green-dark); }
+
+        /* Cancel Button */
+        .cancel-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-sub);
+            padding: 10px 24px;
+            font-weight: 500;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 14px;
+            display: none;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* App Stats (Ratings, Downloads, Size) */
+        .app-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+        }
+        .stat-item:not(:last-child) {
+            border-right: 1px solid var(--border-color);
+        }
+        .stat-val {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+        .stat-lbl {
+            font-size: 11px;
+            color: var(--text-sub);
+            margin-top: 2px;
+        }
+
+        /* ==========================================
+           Screenshot Slider System Styles
+           ========================================== */
+        .screenshots-slider-container {
+            margin: 0 -16px 24px -16px; /* কন্টেইনারের বাইরে স্লাইড ইফেক্ট পাওয়ার জন্য */
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 0 16px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox এর স্ক্রলবার হাইড করার জন্য */
+        }
+        
+        /* Chrome, Safari, and Opera-তে স্ক্রলবার হাইড করার জন্য */
+        .screenshots-slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshot-card {
+            display: inline-block;
+            width: 160px; /* প্লে-স্টোর স্ট্যান্ডার্ড প্রোট্রেট উইডথ */
+            height: 284px;
+            background-color: #f1f3f4;
+            border-radius: 12px;
+            margin-right: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* App Description Section */
+        .description-section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .app-description {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        /* Downloading State Layout Changes */
+        .downloading-mode .circular-progress { display: block; }
+        .downloading-mode .inner-cancel { display: flex; }
+        .downloading-mode .play-btn { display: none; }
+        .downloading-mode .cancel-btn { display: block; }
+        .downloading-mode .app-logo { border-radius: 50%; }
+    </style>
+</head>
+<body>
+
+<div class="mobile-container">
+    <header class="play-header">
+        <div class="play-logo-section">
+            <div class="play-logo-icon"></div>
+            <span class="play-brand-text">Google Play</span>
+        </div>
+        <div class="search-icon">🔍</div>
+    </header>
+
+    <main class="main-content" id="appContainer">
+        
+        <div class="app-info-container">
+            <div class="logo-progress-wrapper">
+                <img class="app-logo" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLM23N0Imi3XhBP7PU32cDBTqscx_8Zp0uOUuGtOI6Npm-M8zlaY2QcWY4IGO1A5aJNaDkZKbDfam-tXmrrfGrQcdrOo2p2YnPRvKGSLV-guWyeFZqbYP0O_DYeU6tapucGyF6Si7h6nVBBaCUbzrvybMjM3CaSVY6I1VkzUug98P7bG6aV0EgPQxnzMfI/s1600-rw/loho.png" alt="App Logo">
+                
+                <svg class="circular-progress">
+                    <circle class="circle-bg" cx="43" cy="43" r="40"></circle>
+                    <circle id="circleFill" class="circle-fill" cx="43" cy="43" r="40"></circle>
+                </svg>
+                
+                <div class="inner-cancel" onclick="cancelDownload()"></div>
+            </div>
+
+            <div class="app-details">
+                <h1 class="app-title">Vdosky APK</h1>
+                <p class="app-developer">Verified Developer</p>
+                <p id="status" class="status-text">31.3 MB</p>
+            </div>
+        </div>
+
+        <div class="action-area">
+            <button id="cancelBtn" class="cancel-btn" onclick="cancelDownload()">Cancel</button>
+            <button id="downloadBtn" class="play-btn" onclick="handleAction()">Install</button>
+        </div>
+
+        <div class="app-stats">
+            <div class="stat-item">
+                <div class="stat-val">4.5 ★</div>
+                <div class="stat-lbl">2K reviews</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">31 MB</div>
+                <div class="stat-lbl">File size</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">50K+</div>
+                <div class="stat-lbl">Downloads</div>
+            </div>
+        </div>
+
+        <div class="screenshots-slider-container">
+            <div class="screenshot-card">
+                <img src="https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1777057297909_ss1.jpg" alt="Screenshot 1">
+            </div>
+            <div class="screenshot-card">
+                <img src="https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1777057383634_ss2.jpg" alt="Screenshot 2">
+            </div>
+            <div class="screenshot-card">
+                <img src="https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1777148521803_ss6.jpg" alt="Screenshot 3">
+            </div>
+            <div class="screenshot-card">
+                <img src="https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1777057420504_ss3.jpg" alt="Screenshot 4">
+            </div>
+        </div>
+
+        <div class="description-section">
+            <div class="section-title">
+                <span>About this app</span>
+                <span class="arrow-icon">➔</span>
+            </div>
+            <p class="app-description">
+                Vdosky is your ultimate entertainment companion. Stream and manage your favorite contents seamlessly with high-speed rendering, secure protocols, and a completely responsive mobile layout built for elite user experiences.
+            </p>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    let fileBlob = null;
+    let isDownloaded = false;
+    let abortController = null;
+
+    async function handleAction() {
+        if (isDownloaded && fileBlob) {
+            const url = window.URL.createObjectURL(fileBlob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = "vdosky.apk";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        } else {
+            runDownload();
+        }
+    }
+
+    async function runDownload() {
+        const url = 'https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1777914252689_vdosky.apk';
+        const proxyUrl = 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url);
+        
+        const container = document.getElementById('appContainer');
+        const btn = document.getElementById('downloadBtn');
+        const circleFill = document.getElementById('circleFill');
+        const statusText = document.getElementById('status');
+
+        container.classList.add('downloading-mode');
+        statusText.innerText = "Pending...";
+        circleFill.style.strokeDashoffset = 251.2;
+
+        abortController = new AbortController();
+        const signal = abortController.signal;
+
+        try {
+            const response = await fetch(proxyUrl, { signal });
+            if (!response.ok) throw new Error('Network Error');
+
+            const reader = response.body.getReader();
+            const totalSize = 32800000; 
+            let receivedSize = 0;
+            let chunks = [];
+
+            while(true) {
+                const {done, value} = await reader.read();
+                if (done) break;
+
+                chunks.push(value);
+                receivedSize += value.length;
+
+                let percent = Math.floor((receivedSize / totalSize) * 100);
+                if (percent > 100) percent = 100;
+                let mb = (receivedSize / (1024 * 1024)).toFixed(1);
+
+                let offset = 251.2 - (percent / 100) * 251.2;
+                circleFill.style.strokeDashoffset = offset;
+                
+                statusText.innerText = `Downloading... ${mb} MB (${percent}%)`;
+            }
+
+            fileBlob = new Blob(chunks, { type: 'application/vnd.android.package-archive' });
+            isDownloaded = true;
+            
+            container.classList.remove('downloading-mode');
+            btn.innerText = "Open / Install";
+            statusText.innerText = "Downloaded successfully";
+
+            handleAction();
+
+        } catch (err) {
+            if (err.name === 'AbortError') {
+                resetToDefault("Installation cancelled");
+            } else {
+                console.error(err);
+                resetToDefault("Download failed. Try again.");
+            }
+        }
+    }
+
+    function cancelDownload() {
+        if (abortController) {
+            abortController.abort();
+        }
+    }
+
+    function resetToDefault(message) {
+        const container = document.getElementById('appContainer');
+        const btn = document.getElementById('downloadBtn');
+        const statusText = document.getElementById('status');
+        
+        container.classList.remove('downloading-mode');
+        btn.innerText = "Install";
+        statusText.innerText = message || "31.3 MB";
+        isDownloaded = false;
+        fileBlob = null;
+    }
+</script>
+
+</body>
+</html>
