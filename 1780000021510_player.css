@@ -1,0 +1,19 @@
+@charset "UTF-8";
+@keyframes plyr-progress{to{background-position:25px 0;background-position:var(--plyr-progress-loading-size,25px) 0}}
+@keyframes plyr-popup{0%{opacity:.5;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes plyr-fade-in{0%{opacity:0}to{opacity:1}}
+.plyr{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;align-items:center;direction:ltr;display:flex;flex-direction:column;font-family:inherit;font-family:var(--plyr-font-family,inherit);font-variant-numeric:tabular-nums;font-weight:400;font-weight:var(--plyr-font-weight-regular,400);line-height:1.7;line-height:var(--plyr-line-height,1.7);max-width:100%;min-width:200px;position:relative;text-shadow:none;transition:box-shadow .3s ease;z-index:0}
+.plyr audio,.plyr iframe,.plyr video{display:block;height:100%;width:100%}
+.plyr button{font:inherit;line-height:inherit;width:auto}
+.plyr:focus{outline:0}
+.plyr--full-ui{box-sizing:border-box}
+.plyr--full-ui *,.plyr--full-ui :after,.plyr--full-ui :before{box-sizing:inherit}
+.plyr--full-ui a,.plyr--full-ui button,.plyr--full-ui input,.plyr--full-ui label{touch-action:manipulation}
+.plyr__badge{background:#4a5464;background:var(--plyr-badge-background,#4a5464);border-radius:2px;border-radius:var(--plyr-badge-border-radius,2px);color:#fff;color:var(--plyr-badge-text-color,#fff);font-size:9px;font-size:var(--plyr-font-size-badge,9px);line-height:1;padding:3px 4px}
+
+/* পোস্টার এবং কন্টেইনার স্টাইল */
+.posterWrap { position: relative; width: 100%; max-width: 640px; margin: 0 auto; cursor: pointer; overflow: hidden; border-radius: 8px; }
+.posterWrap img { width: 100%; display: block; height: auto; }
+.playIcon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 178, 255, 0.9); color: #fff; font-size: 24px; padding: 15px 25px; border-radius: 50%; transition: 0.3s; z-index: 10; }
+.posterWrap:hover .playIcon { background: #00b2ff; transform: translate(-50%, -50%) scale(1.1); }
+#playerContainer { display: none; width: 100%; max-width: 640px; margin: 0 auto; }
