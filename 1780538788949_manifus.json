@@ -1,0 +1,39 @@
+{
+  "short_name": "Movie App",
+  "name": "Movie App",
+  "icons": [
+    {
+      "src": "https://cdn.jsdelivr.net/gh/shortsproeran-creator/mt/main/1780536442381_loho.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/shortsproeran-creator/mt/main/1780536330190_loho.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/shortsproeran-creator/mt/main/1780536330190_loho.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "background_color": "#000000",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "screenshots": [
+    {
+      "src": "https://cdn.jsdelivr.net/gh/shortsproeran-creator/mt/main/1780536493767_flash.jpg",
+      "type": "image/jpeg",
+      "sizes": "940x1672",
+      "form_factor": "narrow",
+      "label": "Movie App Flash Loading Screen"
+    }
+  ]
+}
