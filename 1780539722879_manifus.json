@@ -1,0 +1,24 @@
+{
+  "name": "Movie App",
+  "short_name": "MovieApp",
+  "description": "Watch your favorite movies and shows",
+  "start_url": "/?source=pwa",
+  "display": "standalone",
+  "background_color": "#141414",
+  "theme_color": "#ff5722",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1780539526106_loho.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/shortsproeran-creator/mt/main/1780539573625_loho.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
