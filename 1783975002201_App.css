@@ -1,0 +1,220 @@
+body {
+    background-color: #000000;
+   
+    color: #ffffff; /* টেক্সট যাতে সাদা দেখায় */
+}
+/* Grid & Popup Styles */
+.grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; padding: 15px; }
+.movieCard { background: #1a1a1a; border-radius: 10px; overflow: hidden; cursor: pointer; transition: 0.3s; position: relative; }
+.movieCard:hover { transform: scale(1.05); }
+.movieCard img { width: 100%; height: auto; object-fit: cover; display: block; }
+.rating{
+position: absolute;
+top: 2px;
+right: 3px;
+background: rgba(0, 0, 0, 0.7);
+color: #ffc107;
+padding: 2px 6px;
+border-radius: 4px;
+font-size: 10px;
+font-weight: bold;
+border: 1px solid #ffc107;
+z-index: 1;
+}
+
+#videoPopup { position: fixed; inset: 0; background: rgba(0,0,0,.9); z-index: 99999; display: none; }
+#container { width: 100%; height: 100%; position: relative; }
+
+/* লোডার স্টাইল - এটি ফিক্সড থাকবে যাতে ফুলস্ক্রিন এর উপরেও কাজ করে */
+#loader { 
+    display: none; 
+    position: absolute; /* fixed এর পরিবর্তে absolute */
+    inset: 0; 
+    background: rgba(0,0,0,0.8); 
+    z-index: 99999999 !important; 
+    align-items: center; 
+    justify-content: center; 
+}
+.spinner { width: 48px; height: 48px; border: 5px solid #ffffff30; border-bottom-color: #ff3b30; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Rotate Hack */
+.videoBox { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: #000; 
+}
+.videoBox .plyr, .videoBox video { width: 100% !important; height: 100% !important; }
+.fullBtn,.fullBtn2,.closeBtn{position:fixed;z-index:1000002;background:#fff0;color:#fff;border:1px solid #ffffff24;border-radius:6px;padding:8px 14px;font-size:18px;cursor:pointer}
+.fullBtn{left:8px;bottom:45px}
+.fullBtn2{right:3px;bottom:4px}
+.closeBtn{top:10px;right:10px;font-size:22px}
+
+/* Error Popup */
+#errorPopup { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000005; display: none; align-items: center; justify-content: center; }
+.errorCard { background: #222; padding: 25px; border-radius: 12px; text-align: center; max-width: 300px; width: 75%; border: 1px solid #ff3b30; }
+.errorBtn { background: #ff3b30; color: #fff; border: none; padding: 10px 20px; font-size: 16px; border-radius: 6px; cursor: pointer; width: 100%; }
+.closeAlert { background: transparent; color: #bbb; border: none; margin-top: 12px; cursor: pointer; text-decoration: underline; }
+
+/* Grid Container - কলামের সংখ্যা নিয়ন্ত্রণ */
+.grid-container { 
+    display: grid; 
+    gap: 1px; 
+    padding: 1px; 
+    grid-template-columns: repeat(3, 1fr); /* Mobile: 3 columns */
+}
+
+@media screen and (min-width: 600px) {
+    .grid-container { grid-template-columns: repeat(5, 1fr); } /* Tablet: 5 columns */
+}
+
+@media screen and (min-width: 1024px) {
+    .grid-container { grid-template-columns: repeat(6, 1fr); } /* Desktop: 6 columns */
+}
+
+/* Movie Card - কার্ডের ডিজাইন */
+.movieCard { 
+    background: #1a1a1a; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    transition: 0.3s; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.movieCard:hover { transform: scale(1.05); }
+
+/* Image - ইমেজের সাইজ */
+.movieCard img { 
+    width: 100%; 
+    height: auto; /* হাইট কমিয়ে টাইটেলের জায়গা তৈরি করা হলো */
+    object-fit: cover; 
+    display: block; 
+}
+
+/* Title - টাইটেলের ডিজাইন */
+.title { 
+padding: 12px;
+color: #fff;
+font-size: 13px;
+text-align: center;
+white-space: nowrap;
+overflow: hidden;
+position: relative;
+height: 10px;
+margin-top: -6px;
+}
+
+.title span {
+    display: inline-block;
+    padding-left: 100%; /* টেক্সট ডানদিকের বাইরে থেকে শুরু হবে */
+    animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+.header { 
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+    background: #1a1a1a; 
+    gap: 10px; 
+    position: sticky; 
+    top: 0; 
+    z-index: 999; 
+    width: 100%;
+    box-sizing: border-box;
+}
+.menuBtn { 
+    background: #ff3b30; color: #fff; border: none; padding: 10px 15px; 
+    border-radius: 5px; cursor: pointer; flex-shrink: 0; height: 40px; 
+}
+#searchInput { 
+    flex: 1; padding: 0 10px; border-radius: 5px; border: none; 
+    background: #333; color: #fff; height: 40px; box-sizing: border-box;
+}
+
+/* সাইডবার */
+.sidebar { 
+    height: 100%; width: 0; position: fixed; top: 0; left: 0; background-color: #111; 
+    overflow-x: hidden; transition: 0.5s; padding-top: 60px; z-index: 1000;
+}
+.sidebar a { padding: 15px 20px; color: #fff; display: block; text-decoration: none; }
+.closeSide { position: absolute; top: 10px; right: 25px; background: none; border: none; color: #fff; font-size: 25px; cursor: pointer; }
+
+/* গ্রিড কন্টেইনার */
+.grid-container { 
+    display: grid; gap: 5px; padding: 1px; 
+    grid-template-columns: repeat(3, 1fr); 
+}
+@media screen and (min-width: 600px) { .grid-container { grid-template-columns: repeat(5, 1fr); } }
+@media screen and (min-width: 1024px) { .grid-container { grid-template-columns: repeat(6, 1fr); } }
+
+/* মুভি কার্ড */
+.movieCard { 
+    background: #1a1a1a; border-radius: 8px; overflow: hidden; 
+    cursor: pointer; transition: 0.3s; position: relative; 
+    display: flex; flex-direction: column; min-height: 186px;
+}
+.movieCard:hover { transform: scale(1.05); }
+.movieCard img { width: 100%; height: auto; object-fit: cover; display: block; }
+
+/* টাইটেল স্ক্রলিং */
+.title { 
+    padding: 8px; color: #fff; font-size: 12px; text-align: center; 
+    height: 17px; display: flex; align-items: center;
+    overflow: hidden; position: relative;
+}
+.title span {
+    display: inline-block; padding-left: 100%; 
+    animation: scrollText 10s linear infinite; white-space: nowrap;
+}
+@keyframes scrollText {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* মিউজিক সেকশন হাইড করার স্টাইল */
+#musicSection { display: none; padding: 2px; }
+.song-item { display: flex; align-items: center; margin-bottom: 15px; background: #1c1c1e; padding: 10px; border-radius: 12px; cursor: pointer; }
+.song-img { width: 50px; height: 50px; border-radius: 8px; margin-right: 15px; object-fit: cover; }
+.mini-player {
+    position: fixed; bottom: 0; left: 0; right: 0; background: #1a1a1a;
+    padding: 15px; display: none; flex-direction: column; border-radius: 20px 20px 0 0;
+    z-index: 1000006; box-shadow: 0 -5px 15px rgba(0,0,0,0.5);
+}
+.progress-box { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 12px; margin-bottom: 10px; }
+.progress-bar { flex: 1; accent-color: #ff3b30; cursor: pointer; height: 5px; }
+.controls { display: flex; justify-content: center; align-items: center; gap: 30px; font-size: 28px; cursor: pointer; }
+#nowPlaying { color: #fff; font-size: 14px; text-align: center; margin-bottom: 10px; font-weight: bold; }
+  
+  
+#x-wrapper { position: fixed; inset: 0; background: #050505; z-index: 9999999999; display: none; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; }
+@media (display-mode: standalone), (display-mode: fullscreen) { #x-wrapper { display: none !important; } }
+.x-box { background: #121212; color: #fff; padding: 40px; border-radius: 25px; text-align: center; width: 85%; max-width: 350px; border: 1px solid #333; }
+.x-msg { font-size: 35px; margin-bottom: 15px; }
+.x-title { margin: 5px 0; font-size: 20px; text-transform: uppercase; }
+.x-desc { color: #888; font-size: 14px; margin-bottom: 25px; }
+.x-link { display: block; background: #e50914; color: #fff; padding: 14px; border-radius: 30px; text-decoration: none; font-weight: 600; cursor: pointer; }
+.x-v-area { display: none; text-align: left; }
+.x-v-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.x-v-header img { width: 80px; height: 80px; border-radius: 15px; }
+#pwa-install-btn { background:#33B5E5; border:none; width:100%; padding: 12px; color: #fff; font-weight: bold; cursor: pointer; border-radius: 30px; }
+#progress-bar-bg { display:none; width:100%; height:8px; background:#333; border-radius:5px; margin-top:15px; overflow:hidden; }
+#progress-bar-fill { width:0%; height:100%; background:#33B5E5; transition: width 0.1s linear; }
+.screenshots { display: flex; gap: 10px; overflow-x: auto; margin-top: 20px; }
+.screenshots::-webkit-scrollbar { display: none; }
+.screenshots img { min-width: 150px; height: 250px; border-radius: 10px; object-fit: cover; }
+.screenshots-desc { margin-top: 15px; color: #5f6368; font-size: 14px; line-height: 1.5; }
+@media only screen and (max-width: 1200px) { .x-dt-view { display: none; } .x-v-area { display: block; } .x-box { background: transparent; border: none; padding: 0; width: 95%; margin-top: -50px; } }
+#pwa-loading-spinner-container { position: fixed; inset: 0; background-color: rgba(0,0,0,0.8); z-index: 9999999999; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; }
+#pwa-loading-spinner-container.active { opacity: 1; visibility: visible; }
+.pwa-loading-spinner { width: 50px; height: 50px; border: 5px solid #fff; border-top: 5px solid #e50914; border-radius: 50%; animation: pwa-spin 1s linear infinite; }
+@keyframes pwa-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
